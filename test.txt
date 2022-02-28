@@ -13,4 +13,6 @@ git push
 
 
 scm에서
-파일 옆에 u : unstaging -> + 버튼클릭 ->
+파일 옆에 u : unstaging -> + 버튼클릭 -> A : add,staging -> 메시지 입력 ctrl + enter 는 커밋 : m
+        -> ... 메뉴에서 push -> remote 저장소 설정 안되어 있으면 -> 명령팔레트에 표시 -> url 입력, 이름 origin(원격저장소 이름) 입력
+        -> 터미너렝서 git remote -v 확인 -> master 브랜치 선택 -> push
