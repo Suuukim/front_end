@@ -5,13 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- font awesome 이라는 자바스크립트 라이브러리 활용하여 아이콘 사용을 할 수 있습니다. 
+         아이콘을 이미지가 아닌 글꼴 처럼 다룰수 있습니다.-->
+    <script src="https://kit.fontawesome.com/7f1957b1a3.js" crossorigin="anonymous"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+        *{  /* 모든 요소 */
+            font-family: 'Gamja Flower', cursive;
+        }
+
         table{
-            border-top: 1px solid gray;
-            border-bottom: 1px solid  gray;
+            border-top: 3px solid gray;
+            border-bottom: 3px solid  gray;
+           
         }
         td{
             padding: 10px;
+            /* border: 1px dashed gray;    가이드선 완성되면 지울예정. */
         }
         input,select{
             padding: 6px;
@@ -27,19 +37,32 @@
         .title{
             display: inline-block;      /* label 태그에는 너비가 적용안됩니다.(block 요소가 아님) */
             padding: 10px;
-            width: 100%;
+            width: 70%;
             background-color: #c69;
             border-radius: 4px;
             text-align: center;
             color: white;
         }
-
+        button{
+            padding: 7px 15px;
+            margin: 7px;
+            background-color: rgb(243, 64, 154);
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            border-radius: 4px;
+            cursor: pointer;    /* 해당위치로 가면 마우스포인터가 바뀜. */
+        }
+        /* 선택자 : 마우스가 놓여질때 변경될 css */
+        button:hover{
+            background-color: rgb(131, 116, 123);
+        }
     </style>
 </head>
 <body>
-<div style="width: 70%;margin: auto;">   <!-- table 을 포함하는 박스 -->
+    <div style="width: 70%;margin: auto;">   <!-- table 을 포함하는 박스 -->
+        <h2>회원등록</h2>
 <form action="">    
-    <h2>회원등록</h2>
     <table style="width: 100%;">
         <tr>   <!-- 부모태그 div 너비의 100% -->
             
@@ -96,11 +119,11 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">   
-                <input type="submit" value="가입하기1" class="back">
-                <button type="submit">가입하기2</button>
-                <input type="reset" value="다시쓰기1" class="back">   
-                <button type="reset">다시쓰기2</button>
+            <td colspan="2" style="text-align: center;">   
+                <!-- <input type="submit" value="가입하기1" class="back"> -->
+                <button type="submit">가입하기</button>
+                <!-- <input type="reset" value="다시쓰기1" class="back">  -->  
+                <button type="reset">다시쓰기</button>
             </td>   
         </tr>
 
