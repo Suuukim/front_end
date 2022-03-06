@@ -5,6 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .p1{
+            color: red;
+            border-style: solid;
+            border-width: 5px 20px; /* 5px top and bottom, 20px on the sides */
+        }
+        .p2{
+            color: black;
+            border-style: dotted;
+            border-width: 5px;
+        }
+        .p3{
+            background-color: lightgrey;
+            border-left: 5px solid red;
+        }
+        div{
+            border: 1px solid black;
+            margin: 100px;
+            background-color: lightblue;
+            text-align: center;
+            padding: 10px;
+        }
+        
+    </style>
+
 </head>
 <body style="background-color: powderblue;">
     <h3 style="background-color: palegoldenrod;">p태그</h3>
@@ -28,21 +53,29 @@
             
             <small>Oh,</small> bring <del>back</del> <b>My</b> Bonnie to me.
         </pre>
-        <ul>
-            <li> b - 굵게 표시된 텍스트</li>
-            <li> strong- 중요 텍스트</li>
-            <li> i - 이탤릭체 텍스트</li>
-            <li> em - 강조된 텍스트</li>
-            <li> mark - 표시된 텍스트</li>
-            <li> small - 작은 텍스트</li>
-            <li> del - 삭제된 텍스트</li>
-            <li> ins - 삽입된 텍스트</li>
-            <li> sub - 첨자 텍스트</li>
-            <li> sup - 위첨자 텍스트</li>
+        <ul style="background-color: tomato;">
+            <li><mark> b</mark> - 굵게 표시된 텍스트</li>
+            <li><mark> strong </mark>- 중요 텍스트</li>
+            <li><mark> i</mark> - 이탤릭체 텍스트</li>
+            <li><mark> em</mark> - 강조된 텍스트</li>
+            <li><mark> mark</mark> - 표시된 텍스트</li>
+            <li><mark> small</mark> - 작은 텍스트</li>
+            <li><mark> del</mark> - 삭제된 텍스트</li>
+            <li><mark> ins</mark> - 삽입된 텍스트</li>
+            <li><mark> sub</mark> - 첨자 텍스트</li>
+            <li><mark> sup</mark> - 위첨자 텍스트</li>
         </ul>
     
+    <h1 style="background-color: dodgerblue;">Hello World!!!</h1>
     
-
+    <p class="p1">Hello World!</p>
+    <p class="p2">Hello World!</p>
+    <p class="p3">Hello World!</p>
+    
+    <div>This div element has a top margin of 100px, 
+        a right margin of 150px, a bottom margin of 100px, 
+        and a left margin of 80px.
+    </div>
 
 </body>
 </html>
