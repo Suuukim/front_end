@@ -28,6 +28,8 @@ section{
     height: 33rem;
     width: 100%;
     padding-top: 5px;
+    font-size: 15px;
+    
 }
 footer{
     background-color: rgba(0, 0, 255, 0.719);
@@ -48,7 +50,7 @@ footer{
     left:0;
     top:0px;
     margin-top: -20px;
-    width: 100%;
+    
     z-index: 10;
 }
 a{
@@ -60,9 +62,11 @@ a{
     background-color: coral;
     border-radius: 4px;
 }
-
+table{
+    border: 1px solid gray;
+}
 td{
-    border: 1px dotted gray;
+    border: 1px solid gray;
 }
 td.col1_title{
     text-align: center;
