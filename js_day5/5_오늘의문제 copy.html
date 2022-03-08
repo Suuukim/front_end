@@ -7,20 +7,22 @@
     <title>Document</title>
     <style>
         table{
-            border: 1px solid black;
-            border-color: goldenrod;
+            width: 80%;
+            border: 1px solid;
+            border-color: tomato;
         }
         td,th{
-            border: 1px solid coral;
+            border: 1px solid tomato;
             text-align: center;
             width: 10%;
-            padding: 10px;
-            margin: auto;
+            padding: 7px 12px;
             font-weight: bold;
         }
         th{
+            width: 13%;
             background-color: lightblue;
             color: white;
+            padding: 7px 12px;
         }
 
     </style>
@@ -38,19 +40,18 @@
 
         //시간표 테이블을 완성해주세요. forEach메소드와 콜백함수
 
-        result = '<th>TIME'
+        result = '<th>TIME</th>'
             time.forEach(function(val) {
                 result += `<td>${val}</td>`
             });
-        result += '</th>'
         document.getElementById('time').innerHTML=result;
         
-        result = '<th>TODO'
+        result = '<th>TODO</th>'
             todo.forEach(function(val) {
                 result += `<td>${val}</td>`
             });
-        result += '</th>'
         document.getElementById('todo').innerHTML=result;
+        
     </script>
 </body>
 </html>

@@ -32,4 +32,7 @@ cars.sort(function(a,b){        //a,b는 객체타입 변수
 console.log(cars[0])
 console.log(cars[1])
 console.log(cars[2])
-
+cars.forEach(function(a,b) {
+    return `${a.type}${b.year}`
+})
+console.log(cars[0])
