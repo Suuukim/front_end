@@ -44,10 +44,10 @@
           
             schedule.forEach(function(value){   //value 의 타입이 object -> 프로퍼티 time,todo
                 //${value.time},${value.todo}
-                result += `<td>${value.time}${value.todo}</td>`
+                return `<td>${value.time}${value.todo}</td>`
             })
             
-        document.getElementById('contents').innerHTML=result
+        document.getElementById('contents').innerHTML=schedule
             
       
        
