@@ -11,10 +11,11 @@ let person = { name:'sana',
                 age:19,
                 sayHi : function(){     //메소드 정의 : 객체의 프로퍼티값이 함수 정의 일때 메소드 입니다.
                     console.log(`Hi!! 나는${this.name} 입니다.`);
+                    console.log('Hi!! 나는' + this.name +  '입니다.');  //기존 방식
                 } 
             };        //객체리터럴을 이용하여 객체 생성
 
-person.sayHi();     //객체의 메소드 실행
+person.sayHi();     //객체의 메소드 실행, this는 person 변수가 참조하는 객체.
 
 //프로퍼티 접근하여 person 객체의 이름변경
 person.name='사나';

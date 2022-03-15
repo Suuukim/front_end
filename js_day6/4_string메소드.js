@@ -1,3 +1,28 @@
+/*
+    -string 주요 메소드
+
+    slice(start,end) : start,end 인덱스가 음수가 될 수 있음. 이때는 맨끝 부터 -1
+    substring(start.end) : end 인덱스 문자는 포함 안함.
+    substr(start,length) : 두번째 인자가 추출할 길이
+    replace(src,dest) : src문자열을 dest로 대체함.
+    toUpperCase() : 해당문자열을 대문자로 바꿈.
+    toLowerCase() : 해당문자열을 소문자로 바꿈.
+    concat(join,str2) : str2문자열과 연결함. join 문자열은 연결할 때 사용할 문자열
+    padStart(); 예제 참고
+    padEnd() : 예제 참고
+    charAt() : index위치의 문자 구하기. 
+               자바스크립트에서는 문자열을 배열처럼 다룰수 있음.
+    split() : 문자열 나누기 (구분기호 사용)
+
+    문자열검색 메소드 : 사용형식은 자바와 동일.
+    Stirng indexOf()
+    String lastIndexOf()
+    String startsWith()
+    String endsWith()
+
+*/
+
+
 let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 console.log(text.length);       //문자열 길이
 
@@ -59,8 +84,8 @@ let bb =  "HELLO WORLD";
 console.log(bb[0]);
 
 //문자열 split() : 메소드를 사용하여 문자열을 배열로 변환할 수 있습니다.
-let cc = "a,b,c,d,e,f";
+let cc = "abcdef";
 cc.split(",");
 for(let i=0;i<cc.length;i++){
     console.log(cc[i])
- }
+ };

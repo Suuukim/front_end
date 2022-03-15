@@ -1,0 +1,937 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NC Dinos</title>
+    <link rel="stylesheet" href="/assets/js/swiper5.3.8/swiper.min.css">
+    <link rel="stylesheet" href="/nc_test/style.css">
+    <link rel=" shortcut icon" href="/nc_test/style.css">
+    <link rel="icon" href="/assets/images/favicon.ico">
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/swiper5.3.8/swiper.min.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script src="/js/common.js"></script>
+    <script type="text/javascript">
+        function gameResult(gmKey) {
+            postPage({
+                url: "/game/majorScore.do",
+                vals: [
+                    ["type", "gmKey"],
+                    ["gmKey", gmKey]
+                ]
+            });
+        }
+
+        function gameInfo(gmKey, homeName, awayName, dateStr, stadium) {
+            var title = homeName + " vs " + awayName + " " + dateStr + " " + stadium;
+            $("div#head-info > h1").text(title);
+        }
+    </script>
+</head>
+<body>
+<header class="index-header">
+    
+
+<nav class="top-nav">
+  <ul class="f-wrap">
+    <li class="on"><a href="/homepage.do">홈페이지</a></li>
+    <li><a href="/ticket/main.do">티켓</a></li>
+    <li><a href="/shop.do">온라인샵</a></li>
+    <li><a href="/membership/info.do">주니어 다이노스</a></li>
+    <li class="sns-wrap">
+    	<a href="http://www.youtube.com/user/ncdinos" target="_blank"><img src="/assets/images/ico_youtube.png" alt="유투브"></a>
+    	<a href="http://www.instagram.com/ncdinos2011" target="_blank"><img src="/assets/images/ico_insta.png" alt="인스타그램"></a>
+    	<a href="http://www.facebook.com/ncdinos" target="_blank"><img src="/assets/images/ico_facebook.png" alt="페이스북"></a>
+      <a href="https://twitter.com/ncdinos_fan" target="_blank"><img src="/assets/images/ico_twitter.png" alt="트위터"></a>
+    </li>
+  </ul>
+</nav>
+<div class="header-wrap null">
+  <div>
+    <h1 class="logo"><a href="/homepage.do" class="hidden">NC Dinos</a></h1>
+    <nav class="menu-wrap">
+      <ul class="menu f-wrap" >
+        <li class="">
+          <a href="/dinos/intro.do">다이노스</a>
+          <ul class="s-menu">
+            <li class=""><a href="/dinos/intro.do">구단소개</a></li>
+            <li class=""><a href="/dinos/news.do">구단소식</a></li>
+            <li class=""><a href="/dinos/vi.do">구단VI</a></li>
+            <li class=""><a href="/dinos/stadium.do">구장, 시설안내</a></li>
+            <li class=""><a href="/dinos/socialcontribution.do">사회공헌</a></li>
+            <li class=""><a href="/dinos/partner.do">후원, 제휴</a></li>
+          </ul>
+        </li>
+        <li class="">
+          <a href="/story/photo.do">스토리</a>
+          <ul class="s-menu">
+            <li class=""><a href="/story/photo.do">포토</a></li>
+            <li class=""><a href="/story/movie.do">영상</a></li>
+            <li class=""><a href="/story/column.do">칼럼</a></li>
+          </ul>
+        </li>
+        <li class="name-wrap ">
+          <a href="/game/majorSchedule.do">경기정보</a>
+          <ul class="s-menu">
+            <li class="name">정규리그</li>
+            <li class=""><a href="/game/majorSchedule.do">경기일정/결과</a></li>
+            <li class=""><a href="/game/majorScore.do">박스 스코어</a></li>
+            <li class=""><a href="/game/majorGameNote.do">게임노트</a></li>
+            <li class="name">퓨처스</li>
+            <li class=""><a href="/game/minorSchedule.do">경기 일정/결과</a></li>
+            <li class=""><a href="/game/minorScore.do">박스 스코어</a></li>
+          </ul>
+        </li>
+        <li class="name-wrap ">
+          <a href="/record/majorRank.do">기록실</a>
+          <ul class="s-menu">
+            <li class="name">정규리그</li>
+            <li class=""><a href="/record/majorRank.do">팀기록</a></li>
+            <li class=""><a href="/record/majorBatter.do">타자기록</a></li>
+            <li class=""><a href="/record/majorPitcher.do">투수기록</a></li>
+            <li class="name">퓨처스</li>
+            <li class=""><a href="/record/minorRank.do">팀기록</a></li>
+            <li class=""><a href="/record/minorBatter.do">타자기록</a></li>
+            <li class=""><a href="/record/minorPitcher.do">투수기록</a></li>
+          </ul>
+        </li>
+        <li class="">
+          <a href="/player/all/list.do">선수단</a>
+          <ul class="s-menu">
+          	<li class=""><a href="/player/all/list.do">선수단 전체</a></li>
+            <li class=""><a href="/player/staff/list.do">코칭스태프</a></li>
+            <li class=""><a href="/player/trainer/list.do">트레이너</a></li>
+            <li class=""><a href="/player/pitcher/list.do">투수</a></li>
+            <li class=""><a href="/player/catcher/list.do">포수</a></li>
+            <li class=""><a href="/player/infielder/list.do">내야수</a></li>
+            <li class=""><a href="/player/outfielder/list.do">외야수</a></li>
+            <li class=""><a href="/player/reserve/list.do">군입대</a></li>
+            
+          </ul>
+        </li>
+        <li class="">
+          <a href="/fan/rally/list.do">팬</a>
+          <ul class="s-menu">
+          	<li class=""><a href="/fan/rally/list.do">랠리 다이노스</a></li>
+            <li class=""><a href="/fan/music.do">다이노스 뮤직</a></li>
+            <li class=""><a href="/fan/wallPaper.do">월페이퍼</a></li>
+            <li class=""><a href="/term/contact.do">의견보내기</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<!-- 홈페이지 메인 헤더 E -->
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDhG3maCXe7tbFXq__CwtcZWSRfMiCh5Cc",
+    authDomain: "nc-dinos-homepage.firebaseapp.com",
+    projectId: "nc-dinos-homepage",
+    storageBucket: "nc-dinos-homepage.appspot.com",
+    messagingSenderId: "1037410650333",
+    appId: "1:1037410650333:web:b92f90d8490608cae93334",
+    measurementId: "G-BZZSH21F9E"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var link = window.location.pathname;
+  firebase.analytics().logEvent('homepage', {"view": link} );
+</script>
+</header>
+<main>
+    <section class="main-banner">
+        <!--  <div class="con">
+          <h2><img src="/assets/images/img_text_2021.png" alt="2021 SEASON"></h2>
+          <div class="today-box">
+            <h3><a href="#">최근 경기 결과</a></h3>
+            <div class="box">
+              <span class="date">2021. 05. 15 (토)</span>
+              <div class="f-wrap">
+                <span>
+                  <img src="/assets/images/emblem_nc.png" alt="NC DINOS">
+                  <span class="ico ico-win"></span>NC
+                </span>
+                <span>
+                  <strong class="score">8 : 2</strong>
+                  <span class="text">창원 NC파크</span>
+                </span>
+                <span>
+                  <img src="/assets/images/emblem_kiwoom.png" alt="kiwoom">
+                  키움
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="board-box f-wrap">
+          <div class="item f-wrap">
+            <span class="txt-blue">공지사항</span>
+            <a href="#" class="txt">2021 KBO리그 캘린더 서비스 안내</a>
+            <span class="date roboto">02. 27</span>
+          </div>
+          <div class="item f-wrap">
+            <span class="txt-mint">이벤트</span>
+            <a href="#" class="txt">2021 KBO리그 캘린더 서비스 안내</a>
+            <span class="date roboto">02. 27</span>
+          </div>
+        </div> -->
+
+        <div class="slider" style="background : #061d3d">
+            <div class="swiper-wrapper">
+                
+                    <div class="swiper-slide">
+                        <a href="https://ncdinos.com/dinos/notice/view.do?seq=54111&newsType=all&pageNo=1"><img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/homeBackground/13d9206438074148b78cd729c04cb9e8_20220125_062511.jpg" alt=""></a>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <a href="https://ncdinos.com/dinos/notice/view.do?seq=54108"><img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/homeBackground/4a9a9278e15140dba3ab63d9bacf2f14_20220119_061001.jpg" alt=""></a>
+                    </div>
+                
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="board-box f-wrap">
+            <div class="item f-wrap">
+                <span class="txt-blue-light">공지사항</span>
+                <a href="/dinos/notice/view.do?seq=54119"
+                   class="txt">부경양돈농협-NC, 2022시즌 스폰서십 체결</a>
+                <span class="date roboto">03-08</span>
+            </div>
+            <div class="item f-wrap">
+                <span class="txt-mint">이벤트</span>
+                <a href="/dinos/event/view.do?seq=44952"
+                   class="txt">엔씨 뉴트로 데이</a>
+                <span class="date roboto">06-11</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="timetable">
+        <div class="con">
+            <!-- NC 다이노스 경기일정 S
+        <h2 class="tit">최근 경기 결과</h2>
+        <div class="box">
+          <div class="slider">
+            <div class="wrap">
+              <div class="swiper-wrapper">
+                
+					<div class="swiper-slide">
+					<span class="date roboto">2022.03.15 (화)</span>
+					<div class="img-wrap">
+						<div class="item">
+							<img src="/emblem/MAJOR_NC.png" alt="NC 다이노스"> 
+							<span class="name">NC 다이노스</span> 
+							
+							
+								<span class="result">선발 : 이재학</span>
+							
+						</div>
+						
+							<div class="score">
+								
+									<span class="tag win">승</span> 
+								
+								
+								
+								
+								
+								<span class="num roboto">3 : 2</span>
+								<button class="btn btn-more" onclick="gameResult('20220315SKNC0')">경기결과</button>
+							</div>
+						
+						
+						
+						
+						<div class="item">
+							<img src="/emblem/MAJOR_SK.png" alt="SSG 랜더스"> 
+							<span class="name">SSG 랜더스</span>
+							
+							
+								<span class="result">선발 : 이태양</span>
+							
+						</div>
+					</div>
+				</div>
+				
+					<div class="swiper-slide">
+					<span class="date roboto">2022.03.17 (목)</span>
+					<div class="img-wrap">
+						<div class="item">
+							<img src="/emblem/MAJOR_NC.png" alt="NC 다이노스"> 
+							<span class="name">NC 다이노스</span> 
+							
+								<span class="result">선발 : 미정</span>
+							
+							
+						</div>
+						
+						
+							<div class="score">
+								<span class="vs roboto">VS</span>
+								<span class="btn btn-more btn-disable">경기전</span>
+							</div>
+						
+						
+						
+						<div class="item">
+							<img src="/emblem/MAJOR_HH.png" alt="한화 이글스"> 
+							<span class="name">한화 이글스</span>
+							
+								<span class="result">선발 : 미정</span>
+							
+							
+						</div>
+					</div>
+				</div>
+				
+					<div class="swiper-slide">
+					<span class="date roboto">2022.03.18 (금)</span>
+					<div class="img-wrap">
+						<div class="item">
+							<img src="/emblem/MAJOR_NC.png" alt="NC 다이노스"> 
+							<span class="name">NC 다이노스</span> 
+							
+								<span class="result">선발 : 미정</span>
+							
+							
+						</div>
+						
+						
+							<div class="score">
+								<span class="vs roboto">VS</span>
+								<span class="btn btn-more btn-disable">경기전</span>
+							</div>
+						
+						
+						
+						<div class="item">
+							<img src="/emblem/MAJOR_HH.png" alt="한화 이글스"> 
+							<span class="name">한화 이글스</span>
+							
+								<span class="result">선발 : 미정</span>
+							
+							
+						</div>
+					</div>
+				</div>
+				
+					<div class="swiper-slide">
+					<span class="date roboto">2022.03.19 (토)</span>
+					<div class="img-wrap">
+						<div class="item">
+							<img src="/emblem/MAJOR_NC.png" alt="NC 다이노스"> 
+							<span class="name">NC 다이노스</span> 
+							
+								<span class="result">선발 : 미정</span>
+							
+							
+						</div>
+						
+						
+							<div class="score">
+								<span class="vs roboto">VS</span>
+								<span class="btn btn-more btn-disable">경기전</span>
+							</div>
+						
+						
+						
+						<div class="item">
+							<img src="/emblem/MAJOR_LG.png" alt="LG 트윈스"> 
+							<span class="name">LG 트윈스</span>
+							
+								<span class="result">선발 : 미정</span>
+							
+							
+						</div>
+					</div>
+				</div>
+				
+					<div class="swiper-slide">
+					<span class="date roboto">2022.03.20 (일)</span>
+					<div class="img-wrap">
+						<div class="item">
+							<img src="/emblem/MAJOR_NC.png" alt="NC 다이노스"> 
+							<span class="name">NC 다이노스</span> 
+							
+								<span class="result">선발 : 미정</span>
+							
+							
+						</div>
+						
+						
+							<div class="score">
+								<span class="vs roboto">VS</span>
+								<span class="btn btn-more btn-disable">경기전</span>
+							</div>
+						
+						
+						
+						<div class="item">
+							<img src="/emblem/MAJOR_LG.png" alt="LG 트윈스"> 
+							<span class="name">LG 트윈스</span>
+							
+								<span class="result">선발 : 미정</span>
+							
+							
+						</div>
+					</div>
+				</div>
+				
+              </div>
+            </div>
+            <div class="ico ico-next"></div>
+            <div class="ico ico-prev"></div>
+          </div>
+        </div>
+          <!-- 경기정보 팝업 예시 S  -->
+            <!--           <div class="info-box pop"> -->
+            <!--             <div class="head-info"> -->
+            <!--               <h1>SK vs NC 3월 20일 (일) 창원</h1> -->
+            <!--               <button href="" class="close"><img src="../../assets/images/ico_close.png" alt="닫기"></button> -->
+            <!--             </div> -->
+            <!--             <div class="content-info"> -->
+            <!--               <table summary="해당경기의 시즌상대전적 야구장정보" cellspacing="0" cellpadding="0" class="table2"> -->
+            
+            
+            
+            
+            <!--                 <tbody> -->
+            <!--                   <tr> -->
+            <!--                     <th class="bg_pi"> -->
+            <!--                       <span>시즌 상대 전적</span> -->
+            <!--                     </th> -->
+            <!--                     <td class="bg_pi"> -->
+            <!--                       <span>시즌 상대 전적이 없습니다.</span> -->
+            <!--                     </td> -->
+            <!--                   </tr> -->
+            <!--                   <tr> -->
+            <!--                     <th> -->
+            <!--                       <span>야구장에 갈까?</span> -->
+            <!--                     </th> -->
+            <!--                     <td> -->
+            <!--                       <a href="#" class="b_txt line_r" target="_blank">날씨 확인</a> -->
+            <!--                       <a href="#" class="b_txt mr_l5">티켓구매</a> -->
+            <!--                     </td> -->
+            <!--                   </tr> -->
+            <!--                   <tr> -->
+            <!--                     <th class="bg_pi"> -->
+            <!--                       <span>인터넷으로 볼까?</span> -->
+            <!--                     </th> -->
+            <!--                     <td class="bg_pi"> -->
+            <!--                       <a href="#" class="b_txt">게임센터</a> -->
+            <!--                     </td> -->
+            <!--                   </tr> -->
+            <!--                 </tbody> -->
+            <!--               </table> -->
+            <!--             </div> -->
+            <!--           </div> -->
+            <!-- 경기정보 팝업 예시 E  -->
+        </div>
+    </section>
+
+    <section class="board main-board">
+        <div class="con" style="display:none;">
+            <div class="ban-wrap f-wrap">
+                <a href="/dinos/notice/view.do?seq=37697"><img src="/assets/images/main_banner1.png" alt="NC DINOS MALL 창원 NC파크 다이노스몰 운영 안내"/></a><a href="/membership/info.do"><img src="/assets/images/main_banner2.png" alt="NC DINOS 2021 MEMBERSHIP"/></a>
+
+                
+            </div>
+        </div>
+
+        <br><br><br><br><br>
+
+
+        <div class="con f-wrap">
+            <div class="tab-board">
+                <h2>구단소식</h2>
+                <p>NC 다이노스의 다양한 소식들을 만나보세요</p>
+                <a href="/dinos/news.do" class="more"><span
+                        class="ico ico-more">더보기</span></a>
+                <div class="tabs f-wrap">
+                    <button class="active">전체</button>
+                    <button>공지사항</button>
+                    <button>이벤트</button>
+                </div>
+                <div class="tab-container">
+                    <ul class="cont active">
+                        
+                            <li>
+                                <span class="sort">공지사항</span>
+                                <a href="/dinos/notice/view.do?seq=54119"
+                                   class="tit new">부경양돈농협-NC, 2022시즌 스폰서십 체결</a>
+                                <span class="date">2022-03-08</span>
+                            </li>
+                        
+                            <li>
+                                <span class="sort">공지사항</span>
+                                <a href="/dinos/notice/view.do?seq=54118"
+                                   class="tit new">NC, ‘에어부산’과 함께하는 전훈 평가전 자체중계로 팬들과 만난다</a>
+                                <span class="date">2022-03-01</span>
+                            </li>
+                        
+                            <li>
+                                <span class="sort">공지사항</span>
+                                <a href="/dinos/notice/view.do?seq=54117"
+                                   class="tit new">2022 NC 다이노스 인턴  채용 공고</a>
+                                <span class="date">2022-02-23</span>
+                            </li>
+                        
+                            <li>
+                                <span class="sort">공지사항</span>
+                                <a href="/dinos/notice/view.do?seq=54116"
+                                   class="tit new">2022 NC 다이노스 [국제업무/ HR] 신입· 경력  채용 공고</a>
+                                <span class="date">2022-02-23</span>
+                            </li>
+                        
+                            <li>
+                                <span class="sort">공지사항</span>
+                                <a href="/dinos/notice/view.do?seq=54115"
+                                   class="tit new">NC, 새 사회공헌 프로그램 ‘D-NATION’ 운영</a>
+                                <span class="date">2022-02-22</span>
+                            </li>
+                        
+                    </ul>
+                    <ul class="cont">
+                        
+                            <li>
+                                <span class="sort">공지사항</span>
+                                <a href="/dinos/notice/view.do?seq=54119"
+                                   class="tit new">부경양돈농협-NC, 2022시즌 스폰서십 체결</a>
+                                <span class="date">2022-03-08</span>
+                            </li>
+                        
+                            <li>
+                                <span class="sort">공지사항</span>
+                                <a href="/dinos/notice/view.do?seq=54118"
+                                   class="tit new">NC, ‘에어부산’과 함께하는 전훈 평가전 자체중계로 팬들과 만난다</a>
+                                <span class="date">2022-03-01</span>
+                            </li>
+                        
+                            <li>
+                                <span class="sort">공지사항</span>
+                                <a href="/dinos/notice/view.do?seq=54117"
+                                   class="tit new">2022 NC 다이노스 인턴  채용 공고</a>
+                                <span class="date">2022-02-23</span>
+                            </li>
+                        
+                            <li>
+                                <span class="sort">공지사항</span>
+                                <a href="/dinos/notice/view.do?seq=54116"
+                                   class="tit new">2022 NC 다이노스 [국제업무/ HR] 신입· 경력  채용 공고</a>
+                                <span class="date">2022-02-23</span>
+                            </li>
+                        
+                            <li>
+                                <span class="sort">공지사항</span>
+                                <a href="/dinos/notice/view.do?seq=54115"
+                                   class="tit new">NC, 새 사회공헌 프로그램 ‘D-NATION’ 운영</a>
+                                <span class="date">2022-02-22</span>
+                            </li>
+                        
+                    </ul>
+                    <ul class="cont">
+                        
+                            <li>
+                                <span class="sort">이벤트</span>
+                                <a href="/dinos/event/view.do?seq=44952"
+                                   class="tit new">엔씨 뉴트로 데이</a>
+                                <span class="date">2021-06-11</span>
+                            </li>
+                        
+                            <li>
+                                <span class="sort">이벤트</span>
+                                <a href="/dinos/event/view.do?seq=44951"
+                                   class="tit new">댕댕이 가족의 첫 엔팍 나들이</a>
+                                <span class="date">2021-05-26</span>
+                            </li>
+                        
+                            <li>
+                                <span class="sort">이벤트</span>
+                                <a href="/dinos/event/view.do?seq=44947"
+                                   class="tit new">NC로 뭉치면 우리 모두 한 가족</a>
+                                <span class="date">2021-04-29</span>
+                            </li>
+                        
+                            <li>
+                                <span class="sort">이벤트</span>
+                                <a href="/dinos/event/view.do?seq=44946"
+                                   class="tit new">원정 응원 해시태그 이벤트 (원정 응원단 Part 3. Final) </a>
+                                <span class="date">2019-09-20</span>
+                            </li>
+                        
+                            <li>
+                                <span class="sort">이벤트</span>
+                                <a href="/dinos/event/view.do?seq=44829"
+                                   class="tit new">원정 응원 해시태그 이벤트 (원정 응원단 Part 2) </a>
+                                <span class="date">2019-09-09</span>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="story">
+                <h3><img src="/assets/images/nc_story_txt.png" alt="NC DINOS STORY"></h3>
+                <p>공룡의 꿈을 향한 NC 다이노스의 발자취와<br>
+                    팬 여러분의 이야기가 함께하는 공간입니다.</p>
+                <ul class="sns-wrap f-wrap">
+                    <li><a href="http://www.youtube.com/user/ncdinos" target="_blank"><img
+                            src="/assets/images/ic_story_youtube.png" alt="유투브"></a></li>
+                    <li><a href="http://www.instagram.com/ncdinos2011" target="_blank"><img
+                            src="/assets/images/ic_story_instagram.png" alt="인스타그램"></a></li>
+                    <li><a href="http://www.facebook.com/ncdinos" target="_blank"><img
+                            src="/assets/images/ic_story_facebook.png" alt="페이스북"></a></li>
+                    <li><a href="https://twitter.com/ncdinos_fan" target="_blank"><img
+                            src="/assets/images/ic_story_twitter.png" alt="트위터"></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="tv">
+        <div class="con">
+            <h2>다이노스 영상</h2>
+            <p>NC 다이노스의 업로드 영상을 확인하세요!</p>
+            <div class="f-wrap">
+                
+                    
+                        <div class="gall video-gall">
+                            <a href="/story/movie/view.do?seq=54320"
+                               class="img new">
+                                <div class="ab-box">
+                                    <span class="date">2021-12-16</span>
+                                    <strong class="title">
+                                            충성! 상무입대를 명 받았습니다!
+                                    </strong>
+                                </div>
+                                <span class="img-wrap">
+		              	<img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/story/군입대_20211216_041353.jpg" alt="" style="width: 100%;">
+		              </span>
+                            </a>
+                        </div>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <div class="gall style2">
+                    
+                        
+                    
+                        
+                            <div>
+                                <a href="/story/movie/view.do?seq=54319"
+                                   class="img">
+                                    <img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/story/골글_20211216_041232.jpg" alt="">
+                                </a>
+                                <a href="/story/movie/view.do?seq=54319"
+                                   class="txt">
+                                    <strong class="title"> 2021 KBO 골든글러브 지명타자 부문 양의지</strong>
+                                    <span class="date">2021-12-16</span>
+                                </a>
+                            </div>
+                        
+                    
+                        
+                            <div>
+                                <a href="/story/movie/view.do?seq=54318"
+                                   class="img">
+                                    <img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/story/타운홀 최종_20211216_041112.jpg" alt="">
+                                </a>
+                                <a href="/story/movie/view.do?seq=54318"
+                                   class="txt">
+                                    <strong class="title"> 타운홀 미팅 비하인드 ep2. 환희와 절망의 순간 (완)</strong>
+                                    <span class="date">2021-12-16</span>
+                                </a>
+                            </div>
+                        
+                    
+                        
+                            <div>
+                                <a href="/story/movie/view.do?seq=54317"
+                                   class="img">
+                                    <img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/story/타운홀2_20211216_041005.jpg" alt="">
+                                </a>
+                                <a href="/story/movie/view.do?seq=54317"
+                                   class="txt">
+                                    <strong class="title"> 타운홀 미팅 비하인드 ep1. 소년들의 도전</strong>
+                                    <span class="date">2021-12-16</span>
+                                </a>
+                            </div>
+                        
+                    
+                </div>
+            </div>
+            <a href="/story/movie.do" class="more"><span
+                    class="ico ico-more">더보기</span></a>
+        </div>
+    </section>
+
+    <section class="news">
+        <div class="con">
+            <h2>다이노스 포토</h2>
+            <a href="/story/photo.do" class="more"><span
+                    class="ico ico-more">더보기</span></a>
+            <div class="slider">
+                <div class="gall">
+                    <div class="swiper-wrapper">
+                        
+                            <div class="swiper-slide">
+                                <a href="/story/photo/view.do?seq=54338"
+                                   class="img">
+                                    <img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/story/썸_20220315_074522.jpg" alt="">
+                                </a>
+                                <a href="/story/photo/view.do?seq=54338"
+                                   class="txt">
+                                    <strong class="title">
+                                            [사진첩] 2022 시범경기 SSG 2 - 3 NC (2022.3.15, 창원 NC파크)
+                                    </strong>
+                                    <span class="date">2022-03-15</span>
+                                </a>
+                            </div>
+                        
+                            <div class="swiper-slide">
+                                <a href="/story/photo/view.do?seq=54337"
+                                   class="img">
+                                    <img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/story/썸_20220314_081302.jpg" alt="">
+                                </a>
+                                <a href="/story/photo/view.do?seq=54337"
+                                   class="txt">
+                                    <strong class="title">
+                                            [사진첩] 2022 시범경기 SSG 7 - 6 NC (2022.3.14, 창원 NC파크)
+                                    </strong>
+                                    <span class="date">2022-03-14</span>
+                                </a>
+                            </div>
+                        
+                            <div class="swiper-slide">
+                                <a href="/story/photo/view.do?seq=54336"
+                                   class="img">
+                                    <img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/story/썸네일_20220312_073550.jpg" alt="">
+                                </a>
+                                <a href="/story/photo/view.do?seq=54336"
+                                   class="txt">
+                                    <strong class="title">
+                                            [사진첩] 2022 시범경기 KIA 7 - 0 NC (2022.3.12, 창원 NC파크)
+                                    </strong>
+                                    <span class="date">2022-03-12</span>
+                                </a>
+                            </div>
+                        
+                            <div class="swiper-slide">
+                                <a href="/story/photo/view.do?seq=54335"
+                                   class="img">
+                                    <img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/story/썸네일_20220310_072025.jpg" alt="">
+                                </a>
+                                <a href="/story/photo/view.do?seq=54335"
+                                   class="txt">
+                                    <strong class="title">
+                                            [사진첩] 2022 CAMP2 연습경기 SSG 0 - 0 NC (2022.3.10, 창원 NC파크)
+                                    </strong>
+                                    <span class="date">2022-03-10</span>
+                                </a>
+                            </div>
+                        
+                            <div class="swiper-slide">
+                                <a href="/story/photo/view.do?seq=54334"
+                                   class="img">
+                                    <img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/story/쎔네일_20220309_074621.jpg" alt="">
+                                </a>
+                                <a href="/story/photo/view.do?seq=54334"
+                                   class="txt">
+                                    <strong class="title">
+                                            [사진첩] 2022 CAMP2 연습경기 SSG 5 - 2 NC (2022.3.9, 창원 NC파크)
+                                    </strong>
+                                    <span class="date">2022-03-09</span>
+                                </a>
+                            </div>
+                        
+                            <div class="swiper-slide">
+                                <a href="/story/photo/view.do?seq=54333"
+                                   class="img">
+                                    <img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/story/썸네일_20220304_075644.jpg" alt="">
+                                </a>
+                                <a href="/story/photo/view.do?seq=54333"
+                                   class="txt">
+                                    <strong class="title">
+                                            [사진첩] 2022 CAMP2 연습경기 LG 0 -6 NC (2022.3.4, 창원 NC파크)
+                                    </strong>
+                                    <span class="date">2022-03-04</span>
+                                </a>
+                            </div>
+                        
+                            <div class="swiper-slide">
+                                <a href="/story/photo/view.do?seq=54332"
+                                   class="img">
+                                    <img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/story/썸네일_20220303_083740.jpg" alt="">
+                                </a>
+                                <a href="/story/photo/view.do?seq=54332"
+                                   class="txt">
+                                    <strong class="title">
+                                            사진첩] 2022 CAMP2 연습경기 LG 2 -3 NC (2022.3.3, 창원 NC파크)
+                                    </strong>
+                                    <span class="date">2022-03-03</span>
+                                </a>
+                            </div>
+                        
+                            <div class="swiper-slide">
+                                <a href="/story/photo/view.do?seq=54331"
+                                   class="img">
+                                    <img src="https://ncdinos-homepage.s3.ap-northeast-2.amazonaws.com/v1/story/셀렉_20220227_050828.jpg" alt="">
+                                </a>
+                                <a href="/story/photo/view.do?seq=54331"
+                                   class="txt">
+                                    <strong class="title">
+                                            [사진첩] 2022 CAMP2 훈련 스케치 (2022.2.27, 창원 NC파크, 마산야구장)
+                                    </strong>
+                                    <span class="date">2022-02-27</span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+                <div class="ico ico-next"></div>
+                <div class="ico ico-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="last">
+        <div class="con f-wrap">
+            <a href="/membership/faq.do" class="box">
+                <strong>다이노스 FAQ</strong>
+                <span class="txt">
+            팬 여러분이 자주하는 질문에<br>답변을 모았습니다
+          </span>
+                <span class="ico ico-faq"></span>
+            </a>
+            <a href="/dinos/socialcontribution.do" class="box">
+                <strong>동행 / 다이노스 사회공헌</strong>
+                <span class="txt">
+            NC 다이노스와 함께하는 파트너의<br>후원으로 이어가는 동행 이야기
+          </span>
+                <span class="ico ico-people"></span>
+            </a>
+            <a href="/fan/wallPaper.do" class="box">
+                <strong>다이노스 월페이퍼</strong>
+                <span class="txt">
+            NC 다이노스의 주요 일정을<br>바탕화면으로 만나보세요
+          </span>
+                <span class="ico ico-computer"></span>
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer class="index-header">
+    
+
+<div class="partner" style="display: none;">
+  <div class="slider">
+    <div class="swiper-wrapper">
+      <a href="https://kr.ncsoft.com/kr/index.do" class="swiper-slide" target="_blank">
+        <img src="/partner/jpg/img_footerlogo_01.jpg" alt="NC">
+      </a>
+      <a href="https://banking.nonghyup.com/" class="swiper-slide" target="_blank">
+        <img src="/partner/jpg/img_footerlogo_02.jpg" alt="NH bank">
+      </a>
+      <a href="http://www.pkpork.co.kr/" class="swiper-slide" target="_blank">
+        <img src="/partner/jpg/img_footerlogo_03.jpg" alt="부경양돈농협">
+      </a>
+      <a href="http://brand.pkpork.co.kr/" class="swiper-slide" target="_blank">
+        <img src="/partner/jpg/img_footerlogo_04.jpg" alt="포크밸리">
+      </a>
+      <a href="https://www.hitejinro.com/" class="swiper-slide" target="_blank">
+        <img src="/partner/jpg/img_footerlogo_05.jpg" alt="하이트 테라">
+      </a>
+      <a href="https://www.knbank.co.kr/" class="swiper-slide" target="_blank">
+        <img src="/partner/jpg/img_footerlogo_06.jpg" alt="BNK 경남은행">
+      </a>
+      <a href="https://www.abllife.co.kr/" class="swiper-slide" target="_blank">
+        <img src="/partner/jpg/img_footerlogo_07.jpg" alt="ABL">
+      </a>
+      <a href="http://www.ucaro.co.kr/" class="swiper-slide" target="_blank">
+        <img src="/partner/jpg/img_footerlogo_08.jpg" alt="유카로 오토모빌">
+      </a>
+      <a href="https://www.fint.co.kr/" class="swiper-slide" target="_blank">
+        <img src="/partner/jpg/img_footerlogo_09.jpg" alt="핀트">
+      </a>
+      <a href="http://www.ticketlink.co.kr/" class="swiper-slide" target="_blank">
+        <img src="/partner/jpg/img_footerlogo_10.jpg" alt="티켓링크">
+      </a>
+      <a href="http://www.camc.co.kr/" class="swiper-slide" target="_blank">
+        <img src="/partner/jpg/img_footerlogo_11.jpg" alt="청아병원">
+      </a>
+      <a href="http://www.muruphospital.com/" class="swiper-slide" target="_blank">
+        <img src="/partner/jpg/img_footerlogo_13.jpg" alt="무룹병원">
+      </a>
+      <a href="http://www.fatimalasik.co.kr/" class="swiper-slide" target="_blank">
+        <img src="/partner/jpg/img_footerlogo_12.jpg" alt="파티마안과">
+      </a>
+    </div>
+    <!-- Add Arrows -->
+    <div class="ico ico-next"></div>
+    <div class="ico ico-prev"></div>
+  </div>
+</div>
+<div class="f-wrap">
+  <h1 class="f-logo"><img src="../../assets/images/f_logo.png" alt="nc dinos"></h1>
+  <div class="privacy"><a href="/term/privacy.do" style="font-size:1.1em;">개인정보처리방침</a></div>
+  <div class="info-wrap">
+    <ul class="f-menu">
+      <li><a href="/term/agree.do">이용약관</a></li>
+      <li><a href="/term/email.do">이메일무단수집거부</a></li>
+      <li><a href="/term/faq.do">이용안내</a></li>
+      <li><a href="/term/contact.do">CONTACT US</a></li>
+    </ul>
+    <p class="copy">
+      Copyright 2021 &copy; NC Dinos Baseball Club. All Right Reserved.
+    </p>
+    <ul class="sns-wrap">
+    	<li><a href="http://www.youtube.com/user/ncdinos" target="_blank"><span class="ico ico-youtube">유투브</span></a></li>
+    	<li><a href="http://www.instagram.com/ncdinos2011" target="_blank"><span class="ico ico-insta">인스타그램</span></a></li>
+    	<li><a href="http://www.facebook.com/ncdinos" target="_blank"><span class="ico ico-facebook">페이스북</span></a></li>
+      <li><a href="https://twitter.com/ncdinos_fan" target="_blank"><span class="ico ico-twitter">트위터</span></a></li>
+    </ul>
+  </div>
+  <div class="family">
+    <a href="http://www.ncsoft.com" target="_blank"><img src="../../assets/images/logo_footer_nc.png" alt="NC"></a>
+    <a href="http://www.plaync.co.kr" target="_blank"><img src="../../assets/images/logo_footer_plaync.png" alt="PLAY NC"></a>
+  </div>
+  <span class="p-txt">이 홈페이지는 문화체육관광부와 국민체육진흥공단의 재정후원으로 제작되었습니다.</span>  
+</div>
+</footer>
+
+<script>
+    gameSlider(0);
+    newsSlider();
+    mainSlider();
+</script>
+</body>
+</html>
