@@ -21,7 +21,7 @@
     </nav>
         <section style="background-color: rgba(128, 128, 128, 0.178);">
             <h2 style="text-align: center;" class="section"><strong>홈쇼핑 회원 등록</strong></h2>
-            <form action=""> 
+            <form action="" name="frmuser"> 
             <!-- action 설정된 url로 입력요소에 작성된 데이터를 서버로 전송. 
                 form 태그 속성 method="post" 있을때 와 없을 때 차이점이 있습니다. -> 백엔드 배우고 확인.
             -->
@@ -77,7 +77,15 @@
                     const grade_ = frm.grade.value;
                     const grades = ['A','B','C','D'];
                     const city_code_ = frm.city_code.value;
-                    const temp = parseInt(city_code_);      
+                    const temp = parseInt(city_code_);   
+                   
+                    const d = new Date();
+                    day = frm.d;
+                    let dd = day.getDate();
+                    let mm = day.getMonth()+1;
+                    let yyyy = day.getFullYear();
+                    day = yyyy +'/' + mm + '/' + dd;
+                    console.log(day);
                     //city_code_에 시작문자가 숫자가 아니면 정수변환이 안되고 결과값이 NaN : Not a Number가 됩니다. **
                     console.log(city_code_ + ':' + temp)    //테스트용입니다.
                     let isValid=true;
@@ -116,6 +124,7 @@
                     isValid=false;
                 }
                 
+
                 if(isValid) {
                     alert('유효성 검사 통과')       //완성되면 주석처리
                 }else
