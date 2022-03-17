@@ -19,6 +19,7 @@
     String lastIndexOf()
     String startsWith()
     String endsWith()
+    split('') 배열로 처리해주는 메소드
 
 */
 
