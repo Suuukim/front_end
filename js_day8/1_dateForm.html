@@ -48,6 +48,10 @@
         }
         function endOutput() {
             let temp = new Date(start.value)    //선택한 입실날짜 문자열로 Date 타입 객체생성
+            if(temp <= new Date()) {      //선택한 입실날짜와 오늘날짜 비교
+                alert('입실날짜는 오늘 이후 날짜로 선택하세요.')
+                start.focus()
+            } else {
             temp.setDate(temp.getDate()+parseInt(days.value))   //입실날짜 + 숙박일수
             alert(temp)
             //퇴실날짜를 계산된 temp로 보이게 하기 yyyy-MM--dd 형식 날짜를 end.value값으로 설정하기
@@ -55,6 +59,7 @@
             const month = (temp.getMonth()+1).toString().padStart(2,0);
             const date_ = temp.getDate().toString().padStart(2,0);
             end.value = [year,month,date_].join('-');
+            }
             
         }
         function checkDays() {

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day4_쇼핑몰 회원관리_등록</title>
-    <link rel="stylesheet" href="6_hrdkorea.css">
+    <link rel="stylesheet" href="5_hrdkorea.css">
 </head>
 <body>
     <header>
@@ -45,7 +45,7 @@
                     </tr>
                     <tr>
                         <td class="col1_title">가입일자</td>
-                        <td><input type="text" name="reg_date"></td>
+                        <td><input type="text" name="reg_date" id="days"></td>
                     </tr>
                     <tr>
                         <td class="col1_title">고객등급[A:VIP, B:일반, C:직원]</td>
@@ -69,6 +69,15 @@
                 </table>
             </form>
             <script>
+                //오늘 날짜 가져오기
+                // document.getElementById('days').value = new Date().toISOString().substring(0,10);
+                const reg = document.forms[0].reg_date;
+                const today = new Date();
+                const year = today.getFullYear();
+                const month = (today.getMonth()+1).toString().padStart(2,0);
+                const day = today.getDate().toString().padStart(2,0)
+                reg.value=[year,month,day].join('')
+
                 function check_() {
                     const frm = document.forms[0]
                     const name_ = frm.name;
@@ -78,6 +87,7 @@
                     const grades = ['A','B','C','D'];
                     const city_code_ = frm.city_code.value;
                     const temp = parseInt(city_code_);   
+                    const days_ = frm.reg_date;
                     //city_code_에 시작문자가 숫자가 아니면 정수변환이 안되고 결과값이 NaN : Not a Number가 됩니다. **
                     //console.log(city_code_ + ':' + temp)    //테스트용입니다.
                     // console.log(`테스트 : ${city_code_.split('')} (${typeof city_code_})}`)
@@ -135,7 +145,8 @@
                 })
                 if(cnt>0)
                     alert('도시코드는 숫자만 입력하세요.')
-            }
+                }
+
                 if(isValid) {
                     alert('유효성 검사 통과')       //완성되면 주석처리
                 }else
