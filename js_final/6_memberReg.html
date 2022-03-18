@@ -5,22 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day4_쇼핑몰 회원관리_등록</title>
-    <link rel="stylesheet" href="5_hrdkorea.css">
+    <link rel="stylesheet" href="0_hrdkorea.css">
 </head>
 <body>
     <header>
-        <h3 class="header-item">쇼핑몰 회원관리 ver1.0</h3>
+        <h3 class="header-item">도서대여관리 ver1.0</h3>
     </header>
     <nav class="haeder-nav">
         <ul class="container">
-            <li><a href="2_memberReg.html">회원등록</a></li>
-            <li><a href="3_memberList.html">회원목록조회/수정</a></li>
-            <li><a href="4_sales.html">회원매출조회</a></li>
+            <li><a href="6_memberReg.html">회원등록</a></li>
+            <li><a href="">회원목록조회/수정</a></li>
+            <li><a href="">도서등록</a></li>
+            <li><a href="">도서목록조회/수정</a></li>
+            <li><a href="2_bookRent.html">도서대여</a></li>
+            <li><a href="3_bookReturn.html">도서반납</a></li>
             <li><a href="1_home.html">홈으로.</a></li>
         </ul>
     </nav>
-        <section style="background-color: rgba(128, 128, 128, 0.178);">
-            <h2 style="text-align: center;" class="section"><strong>홈쇼핑 회원 등록</strong></h2>
+        <section>
+            <h2 style="text-align: center;" class="section"><strong>회원 등록</strong></h2>
             <form action="" name="frmuser"> 
             <!-- action 설정된 url로 입력요소에 작성된 데이터를 서버로 전송. 
                 form 태그 속성 method="post" 있을때 와 없을 때 차이점이 있습니다. -> 백엔드 배우고 확인.
@@ -57,8 +60,8 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: center;">
-                            <button onclick="check_()" type="button">등록</button>
-                            <button onclick=location.href="3_memberList.html">조회</button>
+                            <button onclick="check_()" type="button" style="background-color: dodgerblue;">등록</button>
+                            <button onclick=location.href="3_memberList.html" style="background-color: dodgerblue;">조회</button>
                             <!-- button로 링크 또는 기능 설정하기
                             onclick 이벤트와 자바스크립트 명령을 이용합니다.    
                             location.href 는 a태그의 href 속성설정과 같은 내용입니다.

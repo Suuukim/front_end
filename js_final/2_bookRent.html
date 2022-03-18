@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day4_쇼핑몰 회원관리_정보처리산업기사실기</title>
-    <link rel="stylesheet" href="5_hrdkorea.css">
+    <link rel="stylesheet" href="0_hrdkorea.css">
 </head>
 <body>
     <header>
@@ -15,42 +15,86 @@
         <ul class="container">
             <li><a href="6_memberReg.html">회원등록</a></li>
             <li><a href="">회원목록조회/수정</a></li>
+            <li><a href="">도서등록</a></li>
             <li><a href="">도서목록조회/수정</a></li>
             <li><a href="2_bookRent.html">도서대여</a></li>
             <li><a href="3_bookReturn.html">도서반납</a></li>
             <li><a href="1_home.html">홈으로.</a></li>
         </ul>
     </nav>
-
-    
-        <section style="background-color: rgba(128, 128, 128, 0.178);">
+    <section>
+        <form name="frmuser">
             <h3 style="text-align: center;" class="section"><strong>도서대여</strong></h3>
-        <table style="width: 70%;margin:auto">
+                <table style="width: 70%;margin:auto">
+                <tr>
+                <td style="font-weight: 800;" align="center">대여 no</td>
+                <td><input type="text" ></td>
+            </tr>
             <tr>
-            <td>대여 no</td>
-            <td><input type="text"></td>
-        </tr>
-        <tr>
-            <td>회원번호</td>
-            <td><input type="text"></td>
-        </tr>
-        <tr>
-            <td>도서코드</td>
-            <td><input type="text"></td>
-        </tr>
-        <tr>
-            <td>대여일자</td>
-            <td><input type="date"><button style="background-color: dodgerblue;">대여</button></td>
-        </tr>
-        <tr>
-            <td>반납예정일자</td>
-            <td><input type="date"></td>
-        </tr>
-        </table>
-        </section>
+                <td style="font-weight: 800;" align="center">회원번호</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td style="font-weight: 800;" align="center">도서코드</td>
+                <td><input type="text" name="code"></td>
+            </tr>
+            <tr>
+                <td style="font-weight: 800;" align="center">대여일자</td>
+                <td><input type="date" name="date1" id="days"><button onclick="reg_date()" style="background-color: dodgerblue;">대여</button></td>
+            </tr>
+            <tr>
+                <td style="font-weight: 800;" align="center">반납예정일자</td>
+                <td><input type="date" name="date2" onchange="ouptut"></td>
+            </tr>
+            </table>
+        </form>
+    </section>
     
     <footer>
         <p>HRDKOREA Copyrightⓒ2016 All rights reserved. Human Resources Development Service of Korea</p>
     </footer>
+        <script>
+        const start = document.forms[0].time1;  //대여일자
+        const end = document.forms[0].time2;    //반납예정일자
+        
+        //대여일자를 오늘날짜 출력.
+        const reg = document.frmuser.date1;
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = (today.getMonth()+1).toString().padStart(2,0);
+        const day = today.getDate().toString().padStart(2,0)
+        reg.value = [year,month,day].join('-')
+        
+        //반납예정일자 = 대여일자 + 14일
+        function ouptut(){
+           
+            today.setDate(today.getDate()+14)
+            
+        }
+        
+        //대여 버튼 클릭시 알림메시지.
+        function reg_date(){
+            const frm = document.forms[0]
+            const name_ = frm.name;
+            const code_ = frm.code;
+            const reg_ = frm.date1;
+            let isValid=true;
+            if(name_.value =='') {
+                alert('회원번호 입력은 필수입니다.')
+                name_.focus();
+                isValid=false;  
+            }
+            if(code_.value ==''){
+                alert('도서코드 입력은 필수입니다.')
+                code_.focus();
+                isValid=false;
+            }
+            if(isValid) {
+                    alert('유효성 검사 통과')       //완성되면 주석처리
+                }else
+                    alert('유효성 검사 실패')       //완성되면 주석처리
+        }
+
+        </script>
 </body>
 </html>
