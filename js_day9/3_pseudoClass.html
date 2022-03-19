@@ -10,7 +10,7 @@
         padding: 8px;
       }
       #toggle {
-        display: none;
+        display: none;          /* 화면 표시 안합니다. */
       }
       .expandable {
         visibility: collapse;   /* 숨기기(hidden과 유사) */
@@ -25,12 +25,14 @@
         cursor: pointer;
         border-radius: 3px;
       }
-      #toggle:checked ~ * .expandable {
+      #toggle:checked ~ * .expandable {   /* #toggle이 선택되었을때 그 뒤의 .expadable 클래스 요소 */
         visibility: visible;
       }
-      #toggle:checked ~ #btn {
+      #toggle:checked ~ #btn {      /* #toggle이 선택되었을 때 그 뒤에 나오는 id='btn' 요소 */
         background-color: #ccc;
       }
+      /* 참고자료 https://www.w3schools.com/css/css_pseudo_classes.asp
+       */
     </style>
   </head>
   <body>
