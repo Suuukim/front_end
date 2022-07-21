@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My First Web Page</h1> 
+    <p>My First Paragraph</p>
+
+    <p id="demo"></p>
+    <hr>
+    
+    <p id="test1">A Paragraph</p>
+    <button type="button" onclick="myFunction()">Try it</button>
+    <p>버튼을 클릭하면 myFunction()기능이 호출</p>
+    <hr>
+    
+    <p>HTML 이미지 삽입 태그(img src=" ")</p>
+    <p>동일폴더 : img src="트와이스 나연.jpg" <br>
+        하위폴더 : img src="images/트와이스 나연.jpg" <br>
+        상위폴더 : img src="../트와이스 나연.jpg" <br>
+        웹       : img src="주소값"
+    </p>
+    <img src="../images/트와이스 걸그룹.jpg" alt="nayeon" width="500" style="cursor: pointer;" 
+    id="twice"> <br>
+    <button onclick="nayeon()">나연</button>
+    <button onclick="dahyun()">다현</button>
+    <button onclick="momo()">모모</button>
+    <button onclick="mina()">미나</button>
+    <button onclick="sana()">사나</button>
+    <button onclick="jengyeon()">정연</button>
+    <button onclick="jihyo()">지효</button>
+    <button onclick="chayoung()">채영</button>
+    <button onclick="tzuyu()">쯔위</button>
+    <hr>
+    
+
+    <script>
+        documnet.getElementById("demo").innerHTML ="My First JavaScript";   
+        /* id = demo 값에 HTML "My First JavaScript" 값을 대입. */
+        function myFunction() {
+            document.getElementById("test1").innerHTML="Paragraph chaged.";
+        }
+
+        function nayeon() {
+            document.getElementById("twice").src = "../images/트와이스 나연.jpg";
+        }
+        function dahyun() {
+            document.getElementById("twice").src = "../images/트와이스 다현.jpg";
+        }
+        function momo() {
+            document.getElementById("twice").src = "../images/트와이스 모모.jpg";
+        }
+        function mina() {
+            document.getElementById("twice").src = "../images/트와이스 미나.jpg";
+        }
+        function sana() {
+            document.getElementById("twice").src = "../images/트와이스 사나.jpg";
+        }
+        function jengyeon() {
+            document.getElementById("twice").src = "../images/트와이스 정연.jpg";
+        }
+        function jihyo() {
+            document.getElementById("twice").src = "../images/트와이스 지효.jpg";
+        }
+        function chayoung() {
+            document.getElementById("twice").src = "../images/트와이스 채영.jpg";
+        }
+        function tzuyu() {
+            document.getElementById("twice").src = "../images/트와이스 쯔위.jpg";
+        }
+
+
+    </script>
+</body>
+</html>

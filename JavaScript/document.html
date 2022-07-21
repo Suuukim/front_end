@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 출력</title>
+</head>
+<body>
+    <h1>innerHTML 사용</h1>
+    <p>HTML 요소에 엑세스하기 위해 JavaScript는 document.getElemnetById(id) 메서드를 사용할 수 있습니다.</p>
+    <p>id 속성은 HTML 요소를 정의합니다. innerHTML 속성은 HTML 콘텐츠를 정의합니다.</p>
+    <p>document.getElementById("demo").innerHTML=5+6;</p>
+    <p id="demo"></p>
+
+    <script>
+        document.getElementById("demo").innerHTML=5+6;
+    </script>
+    
+    <h2>----------------------------------------------------------------------------</h2>
+    
+    <h1>document.write() 사용</h1>
+    <p>테스트 목적으로 다음을 사용하는 것이 편리합니다. document.write()</p>
+    <p>document.write(5+6);</p>
+
+    <script>
+        document.write(5+6);
+    </script>
+
+    <h2>----------------------------------------------------------------------------</h2>
+
+    <h1>widow.alert() 사용</h1>
+    <p>경고 상자를 사용하여 데이터를 표시할 수 있습니다.</p>
+    <p>window.alert(5+6);</p>
+
+    <script>
+        window.alert(5+6);
+    </script>
+
+    <h2>----------------------------------------------------------------------------</h2>
+
+    <h1>console.log() 사용</h1>
+    <p>디버깅을 위해 console.log() 브라우저에서 메서드를 호출하여 데이터를 표시할 수 있습니다.</p>
+    <p>console.log(5+6);</p>
+
+    <script>
+        console.log(5+6);
+    </script>
+
+    <h2>----------------------------------------------------------------------------</h2>
+
+    <h1>자바스크립트 인쇄</h1>
+    <p>JavaScript에는 인쇄 개체나 인쇄 방법이 없습니다.</p>
+    <p>JavaScript에서 출력 장치에 액세스할 수 없습니다.</p>
+    <p>유일한 예외는 window.print() 브라우저에서 메서드를 호출하여 현재 창의 내용을 인쇄할 수 있다는 것입니다.</p>
+    
+    <button onclick="window.print()">Print this page</button>
+
+</body>
+</html>
